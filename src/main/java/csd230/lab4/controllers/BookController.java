@@ -1,7 +1,7 @@
 package csd230.lab4.controllers;
 
 import csd230.lab4.entities.Book;
-import csd230.lab4.respositories.BookRepository;
+import csd230.lab4.repositories.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

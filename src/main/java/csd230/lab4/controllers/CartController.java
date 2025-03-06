@@ -1,8 +1,8 @@
 package csd230.lab4.controllers;
 
 import csd230.lab4.entities.Cart;
-import csd230.lab4.respositories.CartItemRepository;
-import csd230.lab4.respositories.CartRepository;
+import csd230.lab4.repositories.CartItemRepository;
+import csd230.lab4.repositories.CartRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

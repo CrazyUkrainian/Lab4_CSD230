@@ -3,9 +3,9 @@ package csd230.lab4;
 import com.github.javafaker.Faker;
 import csd230.lab4.entities.Book;
 import csd230.lab4.entities.Cart;
-import csd230.lab4.respositories.BookRepository;
-import csd230.lab4.respositories.CartItemRepository;
-import csd230.lab4.respositories.CartRepository;
+import csd230.lab4.repositories.BookRepository;
+import csd230.lab4.repositories.CartItemRepository;
+import csd230.lab4.repositories.CartRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
 //                registry.addMapping("/rest/book");//.allowedOrigins("http://localhost:9000");
-                registry.addMapping("/**");//.allowedOrigins("http://localhost:9000");
+                registry.addMapping("/**").allowedOrigins("http://localhost:5173");
             }
         };
     }

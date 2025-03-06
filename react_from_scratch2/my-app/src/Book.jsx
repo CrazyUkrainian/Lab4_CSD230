@@ -1,35 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import './App.css'
 
 function Book() {
-    /* RandomUserData.js */
-    const [userData, setUserData] = useState(null);
-
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     useEffect(() => {
-        // fetch('https://random-data-api.com/api/users/random_user')
-        fetch('http://localhost:8080/rest/book')
-            .then(response => response.json())
-            .then(data => setUserData(data));
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:8080/rest/book');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const json = await response.json();
+                setData(json);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchData();
     }, []);
 
+    if (loading) {
+        return (<p>Loading...</p>);
+    }
+    if (error) {
+        return (<p>Error: {error.message}</p>);
+    }
+
     return (
-        <div>
-            {userData && (
-                <div>
-                    <h2>User Information</h2>
-                    <p>
-                        {userData.id}
-                        Name:
-                        {userData.author}
-                        {userData.title}
-                    </p>
-                    <p>
-                        Email: {userData.description}
-                    </p>
-                    {/* Add more user data fields as needed */}
-                </div>
-            )}
-        </div>
+        <ul>
+            {data.map(item => (
+                <li key={item.id}>{item.title} by {item.author}, a story about {item.description}</li>
+            ))}
+        </ul>
+
     );
 }
 
