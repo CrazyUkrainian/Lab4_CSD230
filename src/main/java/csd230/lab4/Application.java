@@ -25,8 +25,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-    // https://spring.io/guides/gs/rest-service-cors
-	// allow cross origin requests otherwise react calls to server rest api wont work
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
