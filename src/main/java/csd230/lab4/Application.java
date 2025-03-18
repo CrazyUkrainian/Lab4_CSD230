@@ -54,7 +54,6 @@ public class Application {
             com.github.javafaker.Number number = faker.number();
             com.github.javafaker.Code code = faker.code();
 
-            // save a few customers
             String isbn;
             for (int i = 0; i < 2; i++) {
                 String title = fakeBook.title();
