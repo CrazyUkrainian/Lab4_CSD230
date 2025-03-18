@@ -2,7 +2,7 @@
 # note changes port to 3307
 services:
   mysql:
-    container_name: 'lab2-mysql'
+    container_name: 'lab4-mysqlO'
     image: 'mysql:latest'
     environment:
       - 'MYSQL_DATABASE=csd230'
